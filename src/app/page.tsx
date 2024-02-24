@@ -29,7 +29,7 @@ export default function Home() {
           </div>
         </div>
         <div className="text-xl border-solid border-2 rounded-md max-w-48 p-2">
-          <a className="p-4" href="/resume.pdf" download>
+          <a className="p-4" href="/cole_stites-clayton_resume.pdf" download>
             Download CV
           </a>
         </div>

@@ -35,7 +35,7 @@ export default function Home() {
       <div className="max-w-5xl mt-8 items-start">
         <p>
           I'm an entrepreneur and engineer passionate about sustainability and
-          the natural world. I started
+          the natural world. I started 
           <a
             href="https://www.shyftpower.com"
             target="_blank"
@@ -44,7 +44,7 @@ export default function Home() {
           >
             SHYFT Power Solutions
           </a>
-          to help advance the transition to renewable energy in Africa. I am now
+           to help advance the transition to renewable energy in Africa. I am now
           taking a career break to work on personal projects, build my
           engineering skills and find my next challenge.
         </p>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useQuery } from "convex/react";
 import React from "react";
@@ -6,13 +6,13 @@ import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { api } from "../../convex/_generated/api";
 
 export default function Home() {
-  const project = useQuery(api.projects.getProjects);
+  const projects = useQuery(api.projects.getProjects);
 
   return (
     <main className="flex min-h-screen flex-col items-start font-mono p-24">
       <div className=" w-full items-start justify-between  text-sm lg:flex">
         <div className="mb-4">
-          <p className="text-2xl font-bold">{"Hi, I'm Cole Stites-Clayton"}</p>
+          <p className="text-3xl font-bold">{"Hi, I'm Cole Stites-Clayton"}</p>
           <p>
             This website is still being built, check back soon for more updates!
           </p>
@@ -57,9 +57,33 @@ export default function Home() {
       </div>
 
       <div className="max-w-5xl mt-8 items-start">
-        <p className="text-2xl font-bold">{"Hi, I'm Cole Stites-Clayton"}</p>
+        <p className="text-2xl font-bold">Software & Data Projects:</p>
+        {projects?.map((project) => {
+          return (
+            <div key={project._id} className="mt-4">
+              <p className="text-xl font-bold">{project.title}</p>
+              <p>{project.description}</p>
+              <p>
+                <a href={project.url} className="underline">
+                  {project.url}
+                </a>
+              </p>
+              <div className="flex">
+                {project.tags.map((tag: string) => {
+                  return (
+                    <p
+                      key={tag}
+                      className="rounded-md border-solid border-2 p-1 mr-2"
+                    >
+                      {tag}
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
-
     </main>
   );
 }

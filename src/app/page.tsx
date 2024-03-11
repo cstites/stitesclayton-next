@@ -1,7 +1,13 @@
+"use client"
+
+import { useQuery } from "convex/react";
 import React from "react";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { api } from "../../convex/_generated/api";
 
 export default function Home() {
+  const project = useQuery(api.projects.getProjects);
+
   return (
     <main className="flex min-h-screen flex-col items-start font-mono p-24">
       <div className=" w-full items-start justify-between  text-sm lg:flex">
@@ -49,6 +55,11 @@ export default function Home() {
           engineering skills and find my next challenge.
         </p>
       </div>
+
+      <div className="max-w-5xl mt-8 items-start">
+        <p className="text-2xl font-bold">{"Hi, I'm Cole Stites-Clayton"}</p>
+      </div>
+
     </main>
   );
 }

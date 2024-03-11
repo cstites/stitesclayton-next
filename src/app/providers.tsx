@@ -1,9 +1,10 @@
-import { PropsWithChildren } from "react";
+"use client";
 
-export function Providers({ children }: PropsWithChildren) {
-    return (
-        <>
-            {children}
-        </>
-    )
+import { ReactNode } from "react";
+import { ConvexProvider, ConvexReactClient } from "convex/react";
+
+const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
+
+export function Providers({ children }: { children: ReactNode }) {
+  return <ConvexProvider client={convex}>{children}</ConvexProvider>;
 }

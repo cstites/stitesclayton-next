@@ -9,7 +9,7 @@ export default function Home() {
   const projects = useQuery(api.projects.getProjects);
 
   return (
-    <main className="flex min-h-screen flex-col items-start font-mono p-24">
+    <main className="flex min-h-screen flex-col items-start font-mono p-12 lg:pl-24 lg:pr-24">
       <div className=" w-full items-start justify-between  text-sm lg:flex">
         <div className="mb-4">
           <p className="text-3xl font-bold">{"Hi, I'm Cole Stites-Clayton"}</p>

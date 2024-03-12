@@ -1,19 +1,19 @@
-import * as React from "react"
+import * as React from "react";
 
-import { Card, CardContent, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 import Image from "next/image";
 
 interface ProjectCarouselProps {
-    projectData: any[];
+  projectData: any[];
 }
 
 export function ProjectCarousel(props: ProjectCarouselProps) {
@@ -35,7 +35,14 @@ export function ProjectCarousel(props: ProjectCarouselProps) {
             <div className="p-1">
               <Card>
                 <CardContent className="flex-col items-center justify-center p-6 aspect-square">
-                  <span className="text-md font-semibold">{project.title}</span>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={120}
+                    height={120}
+                    className="rounded-3xl"
+                  />
+                  <div className="text-md font-semibold mt-4">{project.title}</div>
                 </CardContent>
               </Card>
             </div>
@@ -45,5 +52,5 @@ export function ProjectCarousel(props: ProjectCarouselProps) {
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
-  )
+  );
 }

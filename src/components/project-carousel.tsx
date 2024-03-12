@@ -11,6 +11,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 
 import Image from "next/image";
+import TagBox from "./tag-box";
 
 interface ProjectCarouselProps {
   projectData: any[];
@@ -34,7 +35,7 @@ export function ProjectCarousel(props: ProjectCarouselProps) {
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
               <Card>
-                <CardContent className="flex-col items-center justify-center p-6 aspect-square">
+                <CardContent className="flex-col p-6 aspect-square">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -42,7 +43,12 @@ export function ProjectCarousel(props: ProjectCarouselProps) {
                     height={120}
                     className="rounded-3xl"
                   />
-                  <div className="text-md font-semibold mt-4">{project.title}</div>
+                  <div className="text-md font-semibold mt-4">
+                    {project.title}
+                  </div>
+                  <div className="mt-4">
+                    <TagBox tags={project.tags} />
+                  </div>
                 </CardContent>
               </Card>
             </div>

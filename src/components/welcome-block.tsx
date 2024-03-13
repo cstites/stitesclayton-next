@@ -8,7 +8,7 @@ export default function WelcomeBlock() {
       <div className=" w-full items-start justify-between  text-sm lg:flex">
         <div className="mb-4">
           <p className="text-3xl font-bold">{"Hi, I'm Cole Stites-Clayton"}</p>
-          <p>
+          <p className="text-[#777]">
             This website is still being built, check back soon for more updates!
           </p>
           <div className="flex text-2xl pt-4 items-start">

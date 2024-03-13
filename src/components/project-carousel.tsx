@@ -1,6 +1,6 @@
-import * as React from "react";
+import { useState } from "react";
 
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -15,9 +15,17 @@ import TagBox from "./tag-box";
 
 interface ProjectCarouselProps {
   projectData: any[];
+  descriptionClickHander: (index: number) => void;
+    selectedIndex: number;
 }
 
 export function ProjectCarousel(props: ProjectCarouselProps) {
+
+  function onProjectClick(index: number) {
+    console.log("clicked on project", index);
+    props.descriptionClickHander(index);
+  }
+
   return (
     <Carousel
       opts={{
@@ -25,7 +33,7 @@ export function ProjectCarousel(props: ProjectCarouselProps) {
       }}
       plugins={[
         Autoplay({
-          delay: 2000,
+          delay: 3000,
         }),
       ]}
       className="w-full"
@@ -34,13 +42,13 @@ export function ProjectCarousel(props: ProjectCarouselProps) {
         {props.projectData.map((project, index) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
-              <Card>
-                <CardContent className="flex-col p-6 aspect-square">
+              <Card onClick={() => onProjectClick(index)} className={index === props.selectedIndex ? "border-[#46BDB4] border-2" : ""}>
+                <CardContent className="flex-col p-4">
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={120}
-                    height={120}
+                    width={100}
+                    height={100}
                     className="rounded-3xl"
                   />
                   <div className="text-md font-semibold mt-4">

@@ -36,7 +36,7 @@ export default function ProjectInfo() {
               selectedIndex={selectedIndex}
             />
           </div>
-          <div className="mt-8 ml-8 mr-8">
+          <div className="mt-8">
             <ProjectDetail project={projects?.at(selectedIndex) || {}} />
           </div>
         </>
